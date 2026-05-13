@@ -12,6 +12,8 @@ env/
 
 # Данные MongoDB
 mongodb-data/
+dump/
+scripts/
 
 # Git
 .git/
