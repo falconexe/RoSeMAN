@@ -78,6 +78,43 @@ npm run start:polkadot             # Polkadot indexer
 npm run start:kusama               # Kusama indexer
 ```
 
+## System requirements
+
+| Component    | Minimum                          |
+|--------------|----------------------------------|
+| CPU          | 2 cores (amd64 / arm64)          |
+| RAM          | 2 GB                             |
+| Disk         | 4 GB free                        |
+| OS           | Linux (64-bit)                   |
+| Software     | Docker Engine 20+, Compose v2    |
+
+> **Note:** MongoDB 8 requires ARMv8.2-A or later. Boards with Cortex-A53
+> (e.g. Raspberry Pi 3) are **not supported**. Raspberry Pi 4/5, Orange Pi,
+> Apple Silicon, AWS Graviton and similar arm64 platforms work fine.
+
+## Quick install
+
+One command to deploy on a fresh Linux machine:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/falconexe/RoSeMAN/docker/scripts/install.sh | bash
+```
+
+Custom options:
+
+```bash
+ROSEMAN_DIR=/opt/roseman APP_PORT=8080 bash scripts/install.sh
+```
+
+The script will:
+
+1. Install Docker (if not present) via the official `get.docker.com` script
+2. Clone the repository and create `.env` files with a random MongoDB password
+3. Pull Docker images and start all services
+4. Print the REST API URL and credentials
+
+Re-running the script is safe — existing `.env` files are preserved, the repo is updated via `git pull`.
+
 ### Docker
 
 The [`docker-compose.yml`](./docker-compose.yml) ships MongoDB and three application instances: REST API, Polkadot indexer, Kusama indexer. Configuration is supplied to the containers via bind-mounts of the corresponding `.env` files.
