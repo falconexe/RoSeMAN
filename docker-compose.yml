@@ -35,7 +35,8 @@ services:
       - app-network
 
   rest-api:
-    image: vol4/roseman:v0.1.0
+    build: .
+    image: ghcr.io/falconexe/roseman:v0.1.0
     restart: unless-stopped
     environment:
       NODE_ENV: production
@@ -50,7 +51,8 @@ services:
       - app-network
 
   indexer-polkadot:
-    image: vol4/roseman:v0.1.0
+    build: .
+    image: ghcr.io/falconexe/roseman:v0.1.0
     restart: unless-stopped
     environment:
       NODE_ENV: production
@@ -65,7 +67,8 @@ services:
       - app-network
 
   indexer-kusama:
-    image: vol4/roseman:v0.1.0
+    build: .
+    image: ghcr.io/falconexe/roseman:v0.1.0
     restart: unless-stopped
     environment:
       NODE_ENV: production
