@@ -1,5 +1,6 @@
 services:
   mongodb:
+    container_name: roseman-mongodb
     image: mongo:8
     restart: unless-stopped
     environment:
@@ -19,6 +20,7 @@ services:
       start_period: 10s
 
   mongo-restore:
+    container_name: roseman-mongo-restore
     image: mongo:8
     restart: 'no'
     environment:
@@ -35,6 +37,7 @@ services:
       - app-network
 
   rest-api:
+    container_name: roseman-rest-api
     build: .
     image: ghcr.io/falconexe/roseman:docker
     restart: unless-stopped
@@ -51,6 +54,7 @@ services:
       - app-network
 
   indexer-polkadot:
+    container_name: roseman-indexer-polkadot
     build: .
     image: ghcr.io/falconexe/roseman:docker
     restart: unless-stopped
@@ -67,6 +71,7 @@ services:
       - app-network
 
   indexer-kusama:
+    container_name: roseman-indexer-kusama
     build: .
     image: ghcr.io/falconexe/roseman:docker
     restart: unless-stopped
