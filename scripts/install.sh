@@ -89,6 +89,7 @@ else
     sed \
         -e "s|secret|${MONGO_PASSWORD}|g" \
         -e "s|^PORT=3000|PORT=${APP_PORT}|" \
+        -e "s|^MONGO_VERSION=7|MONGO_VERSION=${MONGO_VERSION:-7}|" \
         .env.example > .env
 fi
 
