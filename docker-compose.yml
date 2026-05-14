@@ -36,7 +36,7 @@ services:
 
   rest-api:
     build: .
-    image: ghcr.io/falconexe/roseman:v0.1.0
+    image: ghcr.io/falconexe/roseman:docker
     restart: unless-stopped
     environment:
       NODE_ENV: production
@@ -52,7 +52,7 @@ services:
 
   indexer-polkadot:
     build: .
-    image: ghcr.io/falconexe/roseman:v0.1.0
+    image: ghcr.io/falconexe/roseman:docker
     restart: unless-stopped
     environment:
       NODE_ENV: production
@@ -68,7 +68,7 @@ services:
 
   indexer-kusama:
     build: .
-    image: ghcr.io/falconexe/roseman:v0.1.0
+    image: ghcr.io/falconexe/roseman:docker
     restart: unless-stopped
     environment:
       NODE_ENV: production
