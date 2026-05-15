@@ -90,7 +90,7 @@ npm run start:kusama               # Kusama indexer
 
 > **Note:** MongoDB 8 requires ARMv8.2-A or later. Boards with Cortex-A53
 > (e.g. Raspberry Pi 3) are **not supported**. Raspberry Pi 4/5, Orange Pi,
-> Apple Silicon, AWS Graviton and similar arm64 platforms work fine.
+> and similar arm64 platforms work fine.
 
 ## Quick install
 
