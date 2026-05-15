@@ -100,11 +100,33 @@ One command to deploy on a fresh Linux machine:
 curl -fsSL https://raw.githubusercontent.com/falconexe/RoSeMAN/docker/scripts/install.sh | bash
 ```
 
-Custom options:
+### Custom options
+
+Environment variables can be set before the command to customize the installation:
 
 ```bash
-ROSEMAN_DIR=/opt/roseman APP_PORT=8080 bash scripts/install.sh
+ROSEMAN_DIR=/opt/roseman MONGO_PASSWORD=mypass APP_PORT=8080 \
+  curl -fsSL https://raw.githubusercontent.com/falconexe/RoSeMAN/docker/scripts/install.sh | bash
 ```
+
+Or download the script and run it locally:
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/falconexe/RoSeMAN/docker/scripts/install.sh -o install.sh
+ROSEMAN_DIR=/opt/roseman MONGO_PASSWORD=mypass bash install.sh
+```
+
+| Variable | Default | Description |
+|---|---|---|
+| `ROSEMAN_DIR` | `$HOME/roseman` | Installation directory |
+| `MONGO_PASSWORD` | auto-generated | MongoDB root password |
+| `APP_PORT` | `3000` | REST API port |
+| `MONGO_PORT` | `27017` | MongoDB port |
+| `MONGO_VERSION` | `7` | MongoDB major version (use `8` for x86_64 or arm64 with standard kernels) |
+
+> **Note:** On some ARM64 boards with Rockchip kernels (e.g. Orange Pi 5),
+> MongoDB 8 fails due to a `tcmalloc` mmap issue. Use `MONGO_VERSION=7` (the default)
+> or check your kernel compatibility before setting `MONGO_VERSION=8`.
 
 The script will:
 
