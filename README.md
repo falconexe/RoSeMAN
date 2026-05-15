@@ -89,8 +89,8 @@ npm run start:kusama               # Kusama indexer
 | Software     | Docker Engine 20+, Compose v2    |
 
 > **Note:** MongoDB 8 requires ARMv8.2-A or later. Boards with Cortex-A53
-> (e.g. Raspberry Pi 3) are **not supported**. Raspberry Pi 4/5, Orange Pi,
-> and similar arm64 platforms work fine.
+> (e.g. Raspberry Pi 3) are **not supported**.
+> Raspberry Pi 4/5, Orange Pi, and similar arm64 platforms work fine.
 
 ## Quick install
 
