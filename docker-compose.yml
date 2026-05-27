@@ -70,23 +70,6 @@ services:
     networks:
       - app-network
 
-  indexer-kusama:
-    container_name: roseman-indexer-kusama
-    build: .
-    image: ghcr.io/falconexe/roseman:docker
-    restart: unless-stopped
-    environment:
-      NODE_ENV: production
-      DOTENV_CONFIG_PATH: /app/.env.kusama
-    volumes:
-      - ./.env:/app/.env:ro
-      - ./.env.kusama:/app/.env.kusama:ro
-    depends_on:
-      mongo-restore:
-        condition: service_completed_successfully
-    networks:
-      - app-network
-
 volumes:
   mongodb-data:
 

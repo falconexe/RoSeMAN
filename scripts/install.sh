@@ -101,14 +101,6 @@ else
     cp .env.polkadot.example .env.polkadot
 fi
 
-# .env.kusama
-if [[ -f .env.kusama ]]; then
-    warn ".env.kusama already exists — keeping existing file."
-else
-    info "Creating .env.kusama..."
-    cp .env.kusama.example .env.kusama
-fi
-
 # ── Step 5: Create dump directory ─────────────────────────────
 mkdir -p dump
 
