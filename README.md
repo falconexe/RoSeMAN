@@ -4,7 +4,7 @@
 
 ## Features
 
-- **Robonomics blockchain indexer** (Polkadot/Kusama) — reads finalized blocks and processes `datalog.NewRecord` events and RWS extrinsics.
+- **Robonomics blockchain indexer** (Polkadot) \u2014 reads finalized blocks and processes `datalog.NewRecord` events and RWS extrinsics.
 - **IPFS loader** — asynchronous processing of `datalog` records with CIDs: fetches JSON via a list of gateways with fallback, parses it and stores sensor measurements.
 - **Reverse geocoding** — derives country/region/city from sensor coordinates.
 - **REST API** — sensor data (V1/V2), story list, indexer status. See [docs/api_endpoints.md](./docs/api_endpoints.md).
@@ -42,8 +42,7 @@ src/
 Environment files:
 
 - `.env` — shared settings + REST API (see [.env.example](./.env.example))
-- `.env.polkadot` — Polkadot indexer (see [.env.polkadot.example](./.env.polkadot.example))
-- `.env.kusama` — Kusama indexer (see [.env.kusama.example](./.env.kusama.example))
+- `.env.polkadot` \u2014 Polkadot indexer (see [.env.polkadot.example](./.env.polkadot.example))
 
 Key flags for splitting processes:
 
@@ -66,7 +65,6 @@ The full list of variables and defaults is in the `*.example` files and in [docs
 npm install
 npm run start:dev                  # API + all modules from .env
 npm run start:dev:polkadot         # Polkadot indexer (.env.polkadot)
-npm run start:dev:kusama           # Kusama indexer  (.env.kusama)
 ```
 
 ### Production
@@ -75,7 +73,6 @@ npm run start:dev:kusama           # Kusama indexer  (.env.kusama)
 npm run build
 npm run start:prod                 # API
 npm run start:polkadot             # Polkadot indexer
-npm run start:kusama               # Kusama indexer
 ```
 
 ## System requirements
@@ -139,12 +136,11 @@ Re-running the script is safe — existing `.env` files are preserved, the repo 
 
 ### Docker
 
-The [`docker-compose.yml`](./docker-compose.yml) ships MongoDB and three application instances: REST API, Polkadot indexer, Kusama indexer. Configuration is supplied to the containers via bind-mounts of the corresponding `.env` files.
+The [`docker-compose.yml`](./docker-compose.yml) ships MongoDB and two application instances: REST API and Polkadot indexer. Configuration is supplied to the containers via bind-mounts of the corresponding `.env` files.
 
 ```bash
 cp .env.example .env
 cp .env.polkadot.example .env.polkadot
-cp .env.kusama.example .env.kusama
 docker compose up -d
 ```
 
