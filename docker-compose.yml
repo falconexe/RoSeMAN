@@ -1,7 +1,7 @@
 services:
   mongodb:
     container_name: roseman-mongodb
-    image: mongo:${MONGO_VERSION:-7}
+    image: mongo:${MONGO_VERSION:-8}
     restart: unless-stopped
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USER:-admin}
@@ -21,7 +21,7 @@ services:
 
   mongo-restore:
     container_name: roseman-mongo-restore
-    image: mongo:${MONGO_VERSION:-7}
+    image: mongo:${MONGO_VERSION:-8}
     restart: 'no'
     environment:
       MONGO_ROOT_USER: ${MONGO_ROOT_USER:-admin}
